@@ -69,20 +69,33 @@ Stopwords are the words which does not add much meaning to a sentence. They can 
 ##### Example of Stop Word Removal
 
 from nltk.corpus import stopwords
+
 from nltk.tokenize import word_tokenize 
+
 input_text = “I am passing the input sentence here. so we will see what happens with this and.”
+
 stop_words = set(stopwords.words(‘english’)) 
+
 word_tokens = word_tokenize(input_text) 
+
 output_text = [w for w in word_tokens if not w in stop_words] 
+
 output = [] 
+
 for w in word_tokens: 
+
     if w not in stop_words: 
+    
         output.append(w) 
   
 print(word_tokens) 
+
 print(output)
+
 #Printing Word Tokens and output(stop words removed)#
+
 ['I', 'am', 'passing', 'the', 'input', 'sentence', 'here', '.', 'so', 'we', 'will', 'see', 'what', 'happens', 'with', 'this', 'and', '.']
+
 ['I', 'passing', 'input', 'sentence', '.', 'see', 'happens', '.']
 
 ### 3.Stemming Or Lemmatization:
@@ -106,54 +119,89 @@ Lemmatization looks at surrounding text to determine a given word’s part of sp
 For Stemming-
 
 from nltk.stem import PorterStemmer
+
 stemming=PorterStemmer()
+
 words=["eating","eats","eaten","writing","writes","programming","programs","history","finally","finalized"]
+
 for word in words:
+
     print(word+"---->"+stemming.stem(word))
+    
 eating---->eat
+
 eats---->eat
+
 eaten---->eaten
+
 writing---->write
+
 writes---->write
+
 programming---->program
+
 programs---->program
+
 history---->histori
+
 finally---->final
+
 finalized---->final
 
 stemming.stem('congratulations')
+
 'congratul'
 
 stemming.stem('sitting')
+
 'sit'
 
 For lemmatizer:
 
 from nltk.stem import WordNetLemmatizer
+
 lemmatizer = WordNetLemmatizer()
 '''
 POS- Noun-n
+
 verb-v
+
 adjective-a
+
 adverb-r
+
 '''
 for word in words:
+
     print(word+"---->"+lemmatizer.lemmatize(word,pos='v'))
+    
 eating---->eat
+
 eats---->eat
+
 eaten---->eat
+
 writing---->write
+
 writes---->write
+
 programming---->program
+
 programs---->program
+
 history---->history
+
 finally---->finally
+
 finalized---->finalize
+
 lemmatizer.lemmatize("good",pos='v')
+
 'good'
 
 #### Note
 Sentiment Analysis-- stemming
+
 Chatbot---lemmatization
 
 ### Step 2: Feature Extraction
@@ -171,13 +219,21 @@ This can be implemented with the help of following code:
 
 X = []
 for data in dataset:
+
     vector = []
+    
     for word in freq_words:
+    
         if word in nltk.word_tokenize(data):
+        
             vector.append(1)
+            
         else:
+        
             vector.append(0)
+            
     X.append(vector)
+    
 X = np.asarray(X)
 
 ##### 2.Term Frequency-Inverse Document Frequency (TF-IDF):
@@ -187,9 +243,13 @@ It can be defined as the calculation of how relevant a word in a series or corpu
 ##### Code-
 
 from sklearn.feature_extraction.text import TfidfVectorizer
+
 vectorizer_n_gram_max_features = TfidfVectorizer(norm="l2",analyzer='word', ngram_range=(2,3), max_features = 10)
+
 tf_idf_matrix_n_gram_max_features = vectorizer_n_gram_max_features.fit_transform(book)
+
 print(vectorizer_n_gram_max_features.get_feature_names())
+
 print(tf_idf_matrix_n_gram_max_features.toarray())
 
 ##### 3.Word2Vec
