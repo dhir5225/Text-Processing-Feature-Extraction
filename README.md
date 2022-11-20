@@ -1,8 +1,10 @@
 # Text-Processing-Feature-Extraction
 
+Natural Language Processing (NLP) is one of the fastest growing parts of Artificial intelligence. One must have a good command over NLP to process text-based data sets. I recently started on this and after doing some research got to know that below concepts needs to be understood very well before starting a journey on advance NLP computations. Here we will only focus on text preprocessing and feature extraction and later will solve some interesting problem using same.
+
 ### Step 1 : Data Preprocessing
 
-### Pip install Spacy
+
 
 ### What’s spaCy?
 
@@ -23,6 +25,8 @@ There are different ways to preprocess text:
 ##### 2.Stop word removal, 
 
 ##### 3.Stemming Or Lemmatization. 
+
+##### 4. Part of Speech Tagging
 
 Among these, the most important step is tokenization. It’s the process of breaking a stream of textual data into words, terms, sentences, symbols, or some other meaningful elements called tokens. A lot of open-source tools are available to perform the tokenization process.
 
@@ -99,6 +103,8 @@ print(output)
 ['I', 'passing', 'input', 'sentence', '.', 'see', 'happens', '.']
 
 ### 3.Stemming Or Lemmatization:
+
+They both are used for text normalization. Stemming basically removes the redundancy by bringing everything in its simple form for example 'dancing' & 'dancer' becomes 'dance' in this. On the other hand, Lemmatization does the morphological analysis and keeps part of speech into consideration
 
 Stemming
 
@@ -204,15 +210,33 @@ Sentiment Analysis-- stemming
 
 Chatbot---lemmatization
 
+### 4.Part of Speech Tagging
+
+Also know as POS Taggin or POST. Why POST requried ? Because same sentence or paragraph can have the same word in different grammatically contexts and it is not a good idea to consider the second occurrence as redundancy, so as a solution we prefer tagging each word with its Part of Speech to make it grammatically unique. Consider below example, here all above words are not grammatically same.
+
+The heavens are above. (Adverb)
+
+The moral code of conduct is above the civil code of conduct. (Proposition)
+
+Our blessings come from above. (Noun)
+
 ### Step 2: Feature Extraction
 
+We can not use text directly to train our models. We need to convert it in the form of features, only then it can be used to train any model for desired outcome and we know very well that most of the models respond to the numeric features very well. So we need to bring all these text representations in the form of numbers
+
 Feature Extraction is one of the trivial steps to be followed for a better understanding of the context of what we are dealing with. After the initial text is cleaned and normalized, we need to transform it into their features to be used for modeling. We use some particular method to assign weights to particular words within our document before modeling them. We go for numerical representation for individual words as it’s easy for the computer to process numbers, in such cases, we go for word embeddings.
+
+There are two popular approaches to extract features from texts:
+
+1.Count the number of occurrece of each word in a document.
+
+2.Calculate the frequency of each word occurrence out of all word in a document.
 
 #### Various methods of feature extraction and word embeddings practiced in Natural Language processing:
 
 ##### 1.Bag of Words:
 
-The bag-of-words model is commonly used in methods of document classification where the (frequency of) occurrence of each word is used as a feature for training a classifier.
+The bag-of-words model is commonly used in methods of document classification where the (frequency of) occurrence of each word is used as a feature for training a classifier,or inn another words Bag of words is one of the simplest approaches of feature extraction, here we simply keep the frequency count of all unique words and consider it as a feature
 
 In this step we construct a vector, which would tell us whether a word in each sentence is a frequent word or not. If a word in a sentence is a frequent word, we set it as 1, else we set it as 0.
 This can be implemented with the help of following code:
