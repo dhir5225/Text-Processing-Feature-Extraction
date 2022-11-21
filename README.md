@@ -2,11 +2,13 @@
 
 Natural Language Processing (NLP) is one of the fastest growing parts of Artificial intelligence. One must have a good command over NLP to process text-based data sets. I recently started on this and after doing some research got to know that below concepts needs to be understood very well before starting a journey on advance NLP computations. Here we will only focus on text preprocessing and feature extraction and later will solve some interesting problem using same.
 
+![image](https://user-images.githubusercontent.com/109084435/203063671-2f10bbf4-2b0c-4ee2-83b0-6bd9f3c12078.png)
+
 ### Step 1 : Data Preprocessing
 
+### Libraries for NLP
 
-
-### What’s spaCy?
+#### 1.spaCy?
 
 spaCy is a free, open-source library for advanced Natural Language Processing (NLP) in Python.
 
