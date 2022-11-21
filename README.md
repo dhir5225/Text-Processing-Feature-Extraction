@@ -30,6 +30,8 @@ There are different ways to preprocess text:
 
 ##### 4. Part of Speech Tagging
 
+##### 5.Remove Punctuation 
+
 Among these, the most important step is tokenization. It’s the process of breaking a stream of textual data into words, terms, sentences, symbols, or some other meaningful elements called tokens. A lot of open-source tools are available to perform the tokenization process.
 
 ### 1.Tokenization
@@ -221,6 +223,12 @@ The heavens are above. (Adverb)
 The moral code of conduct is above the civil code of conduct. (Proposition)
 
 Our blessings come from above. (Noun)
+
+### 5.Remove Punctuation
+
+Punctuation can provide grammatical context to a sentence which supports human understanding. But for our vectorizer, which counts the number of words and not the context, punctuation does not add value. So we need to remove all special characters. For example, “How are you?” becomes: How are you
+
+![image](https://user-images.githubusercontent.com/109084435/203066121-3b97ac13-0a08-413f-8a33-44289124fb02.png)
 
 ### Step 2: Feature Extraction
 
